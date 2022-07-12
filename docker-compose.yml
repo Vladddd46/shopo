@@ -1,0 +1,75 @@
+version: "3"
+services:
+  shopo_reverse_proxy:
+    container_name: shopo_reverse_proxy
+    image: nginx:1.23.0-alpine
+    volumes:
+      - ./conf.d/shopo_reverse_proxy.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 8000:80
+    restart: always
+    depends_on:
+      - shopo_postgres
+      - shopo_rabbitmq
+  shopo_postgres:
+    container_name: shopo_postgres
+    image: postgres:14.4
+    restart: always
+    environment:
+      - POSTGRES_USER=shopo
+      - POSTGRES_PASSWORD=42424242
+      - POSTGRES_DB=shopo
+    ports:
+      - 5432:5432
+    volumes:
+      - ./conf.d/db_volume:/var/lib/postgreqsl/data
+  shopo_rabbitmq:
+    image: rabbitmq:3.10.5
+    container_name: shopo_rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    restart: always
+  shopo_gateway:
+    container_name: shopo_gateway
+    image: node:16.16.0-alpine
+    volumes:
+      - ./gateway_service:/home/node/app
+    working_dir: /home/node/app
+    command: "npm run start:dev"
+    depends_on:
+      - shopo_postgres
+    restart: always
+  shopo_filesystem:
+    container_name: shopo_filesystem
+    image: node:16.16.0-alpine
+    volumes:
+      - ./filesystem_service:/home/node/app
+    working_dir: /home/node/app
+    command: "npm run start:dev"
+    depends_on:
+      - shopo_gateway
+      - shopo_rabbitmq
+    restart: always
+  shopo_auth:
+    container_name: shopo_auth
+    image: node:16.16.0-alpine
+    volumes:
+      - ./auth_service:/home/node/app
+    working_dir: /home/node/app
+    command: "npm run start:dev"
+    depends_on:
+      - shopo_gateway
+      - shopo_rabbitmq
+    restart: always
+  shopo_notifications:
+    container_name: shopo_notifications
+    image: node:16.16.0-alpine
+    volumes:
+      - ./notifications_service:/home/node/app
+    working_dir: /home/node/app
+    command: "npm run start:dev"
+    depends_on:
+      - shopo_gateway
+      - shopo_rabbitmq
+    restart: always
