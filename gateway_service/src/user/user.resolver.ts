@@ -7,6 +7,8 @@ export class UserResolver {
 
   @Query()
   async user(@Args('id') id: number) {
+    console.log('🚀 ~ file: user.resolver.ts ~ line 10 ~ UserResolver ~ user ~ id', id);
+
     return this.userService.findOneById(id);
   }
 }

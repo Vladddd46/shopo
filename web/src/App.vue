@@ -1,22 +1,8 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-
-
-import Footer from './components/Footer.vue'
-import Header from './components/Header.vue';
-
-
 </script>
 
 <template>
-  <article class="container is-fullhd is-fullheight-100vh is-flex-direction-column">
-    <Header/>
-    <section class="body_container">
-      <RouterView/>
-    </section>
-    <Footer/>
-</article>
+  <RouterView />
 </template>
 
 <style scoped>

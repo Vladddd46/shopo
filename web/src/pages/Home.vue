@@ -1,30 +1,22 @@
-<script lang="ts">
-import { useUserStore } from '../stores/user';
+<script setup lang="ts">
+import { ref, resolveComponent } from "vue";
 
-export default {
-  data() {
-    return {};
-  },
-  setup() {
-    const userStore = useUserStore();
+defineProps<{ msg: string }>();
 
-    return { userStore };
-  },
-  methods: {
-    async fuck() {
-          const user = await this.axios.get(`${import.meta.env.VITE_APP_SERVER_URL}/auth/checkToken`);
-    }
-  }
-};
+const chain = ref();
+
+async function fetchChain() {
+  new Promise((resolve) => resolve(["1", "2", "3", "4"])).then((data) => (chain.value = data));
+}
 </script>
 
 <template>
-  <div class="fuck">this is HOOOME page</div>
-  <button class="button is-light" @click="fuck()">check token</button>
+  <button class="btn btn-primary" @click="fetchChain">get chain</button>
+  {{ chain }}
 </template>
 
 <style scoped>
-.fuck {
-  color: red;
+.read-the-docs {
+  color: #888;
 }
 </style>
