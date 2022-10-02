@@ -24,6 +24,13 @@ docker-compose up -d
 
 all shit will be available at localhost:8000/gateway (all the url's see at conf.d/shopo_reverse_proxy.conf)
 
+## extra step for shopo_gateway service
+
+```bash
+docker exec -it shopo_gateway sh
+npx prisma migrate dev
+npx prisma generate
+```
 
 enjoy!!!
 

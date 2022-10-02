@@ -1,0 +1,32 @@
+export default [
+  {
+    name: 'carrot',
+    calories: 41,
+    carbohydrates: 9.6,
+    protein: 0.9,
+    fat: 0.2,
+    sugar: 4.7,
+    fiber: 2.8,
+    packaging: 1000,
+  },
+  {
+    name: 'onion',
+    calories: 64,
+    carbohydrates: 15,
+    protein: 1.8,
+    fat: 0.16,
+    sugar: 6.8,
+    fiber: 2.72,
+    packaging: 1000,
+  },
+  {
+    name: 'pork',
+    calories: 352,
+    carbohydrates: 3.59,
+    protein: 24.62,
+    fat: 25.93,
+    sugar: 1.06,
+    fiber: 0.9,
+    packaging: 1000,
+  },
+];
