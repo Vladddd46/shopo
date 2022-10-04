@@ -7,6 +7,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { UserModule } from './user/user.module';
 import { PrismaService } from './prisma/prisma.service';
+import { ProductModule } from './product/product.module';
+import { DishModule } from './dish/dish.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { PrismaService } from './prisma/prisma.service';
       },
     }),
     UserModule,
+    ProductModule,
+    DishModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

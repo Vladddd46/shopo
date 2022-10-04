@@ -1,0 +1,16 @@
+type Product {
+  id: Int!
+  name: String
+  calories: Float
+  carbohydrates: Float
+  protein: Float
+  fat: Float
+  sugar: Float
+  fiber: Float
+  packaging: Int
+}
+
+type Query {
+  product(id: Int!): Product
+  products: [Product!]!
+}

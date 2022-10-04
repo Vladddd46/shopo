@@ -1,22 +1,7 @@
-<script setup lang="ts">
-import { ref, resolveComponent } from "vue";
-
-defineProps<{ msg: string }>();
-
-const chain = ref();
-
-async function fetchChain() {
-  new Promise((resolve) => resolve(["1", "2", "3", "4"])).then((data) => (chain.value = data));
-}
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <button class="btn btn-primary" @click="fetchChain">get chain</button>
-  {{ chain }}
+  <section class="flex mt-20 pl-4">this is home</section>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
+<style scoped></style>

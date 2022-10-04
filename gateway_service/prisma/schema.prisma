@@ -13,6 +13,8 @@ model User {
   password    String
   createdAt   DateTime @default(now())
   updatedArAt DateTime @updatedAt
+
+ @@map("users")
 }
 
 model Product {
@@ -26,12 +28,16 @@ model Product {
   fiber          Decimal?
   packaging      Int?
   ProductsOnDish ProductsOnDish[]
+
+  @@map("products")
 }
 
 model Dish {
   id       Int              @id @default(autoincrement())
   name     String           @unique
   products ProductsOnDish[]
+
+  @@map("dishes")
 }
 
 model ProductsOnDish {

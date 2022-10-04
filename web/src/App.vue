@@ -1,20 +1,33 @@
 <script setup lang="ts">
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
-  <RouterView />
+  <article class="container mx-auto px-4 fuck is-fullheight-100vh">
+    <section class="header-container">
+      <Header />
+    </section>
+    <section class="body-container">
+      <RouterView />
+    </section>
+    <section class="footer-container">
+      <Footer />
+    </section>
+  </article>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+.is-fullheight-100vh {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.header-container {
+  height: auto;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.body-container {
+  flex: 1;
 }
 </style>
