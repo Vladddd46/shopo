@@ -40,6 +40,8 @@ services:
     depends_on:
       - shopo_postgres
     restart: always
+    ports:
+      - 9229:9229
   shopo_filesystem:
     container_name: shopo_filesystem
     image: node:16.16.0-alpine
@@ -51,6 +53,8 @@ services:
       - shopo_gateway
       - shopo_rabbitmq
     restart: always
+    ports:
+      - 9230:9230
   shopo_auth:
     container_name: shopo_auth
     image: node:16.16.0-alpine

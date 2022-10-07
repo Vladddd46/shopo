@@ -27,7 +27,7 @@ export default {
 
 <template>
   <article class="flex mt-20 pl-4">
-    <div v-for="dish in dishes" class="card w-56 bg-gray-100 shadow-x1 ml-4">
+    <div v-for="dish in dishes" class="card w-56 bg-gray-100 shadow-x1 ml-4 ">
       <figure><img src="https://picsum.photos/400/225" alt="Shoes" /></figure>
       <div class="card-body">
         <h2 class="card-title">{{ dish.name }}</h2>

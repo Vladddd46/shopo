@@ -36,3 +36,4 @@
 conf.d/db_volume
 conf.d/rabbitmq_volume
 **/.env
+**/.log
