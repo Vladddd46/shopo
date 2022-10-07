@@ -2,11 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
-export class UserService {
+export class BalancerService {
   constructor(private prismaService: PrismaService) {}
 
-  async findOneById(id: number): Promise<string> {
-    console.log(id);
-    return 'daymn';
-  }
+
+  
 }

@@ -1,5 +1,4 @@
-import { Resolver, Query, Args, ResolveField, Parent } from '@nestjs/graphql';
-import { runInThisContext } from 'vm';
+import { Resolver, Query, Args } from '@nestjs/graphql';
 import { ProductService } from './product.service';
 
 @Resolver('Product')
@@ -8,6 +7,7 @@ export class ProductResolver {
 
   @Query('product')
   async getProduct(@Args('id') id: number) {
+    console.log('🚀 ~ file: product.resolver.ts ~ line 10 ~ ProductResolver ~ getProduct ~ id', id);
     return this.productService.findOne(id);
   }
 

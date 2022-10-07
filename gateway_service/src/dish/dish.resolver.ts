@@ -7,6 +7,7 @@ export class DishResolver {
 
   @Query('dish')
   async getProduct(@Args('id') id: number) {
+    console.log('🚀 ~ file: dish.resolver.ts ~ line 10 ~ DishResolver ~ getProduct ~ id', id);
     return this.dishService.findOne(id);
   }
 

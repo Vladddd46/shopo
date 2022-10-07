@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { PrismaService } from './prisma/prisma.service';
 import { ProductModule } from './product/product.module';
 import { DishModule } from './dish/dish.module';
+import { BalancerModule } from './balancer/balancer.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { DishModule } from './dish/dish.module';
     UserModule,
     ProductModule,
     DishModule,
+    BalancerModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
